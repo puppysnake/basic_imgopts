@@ -22,7 +22,7 @@ def rot90degs_imgdata_pms(in_pmsdata):
     deg90_pmsdata = in_pmsdata[deg90_meshY, deg90_meshX, :].copy()
 
     deg180_meshY, deg180_meshX = np.meshgrid(np.arange(pms_h - 1, -1, -1), np.arange(pms_w - 1, -1, -1))
-    deg180_pmsdata = in_pmsdata[deg180_meshY, deg180_meshX, :].copy().T
+    deg180_pmsdata = np.swapaxes(in_pmsdata[deg180_meshY, deg180_meshX, :].copy(), 0, 1)
 
     deg270_meshY, deg270_meshX = np.meshgrid(np.arange(0, pms_h, 1), np.arange(pms_w - 1, -1, -1))
     deg270_pmsdata = in_pmsdata[deg270_meshY, deg270_meshX, :].copy()
